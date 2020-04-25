@@ -1,0 +1,40 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="Microsoft.CSharp" #>
+<#@ assembly name="$(TargetPath)" #>
+<#@ assembly name="$(TargetDir)SystemEx.dll" #>
+<#@ assembly name="$(TargetDir)VSIXEx.dll" #>
+<#@ assembly name="$(TargetDir)VSIXEx.Designer.dll" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="SystemEx" #>
+<#@ import namespace="VSIXEx" #>
+<#@ import namespace="VSIXEx.Attributes" #>
+<#@ import namespace="VSIXEx.Designer" #>
+<#@ import namespace="VSIXEx.Designer.Templates" #>
+<#@ output extension=".vsct" #>
+<#
+	var visxAssembly = typeof(VSIXExVSIX.MainPackage).Assembly;
+	var model = new VSCTModel(visxAssembly);
+#>
+<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <Extern href="stdidcmd.h"/>
+  <Extern href="vsshlids.h"/>
+
+  <Commands package="guidMainPackage">
+<#= model.GenerateCommandGroups() #>
+
+<#= model.GenerateCommandMenus() #>
+
+<#= model.GenerateCommandButtons() #>
+
+<#= model.GenerateCommandBitmaps() #>
+  </Commands>
+
+<#= model.GenerateKeyBindings() #>
+
+<#= model.GenerateSymbols() #>
+</CommandTable>

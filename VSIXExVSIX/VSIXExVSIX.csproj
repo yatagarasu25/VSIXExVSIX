@@ -26,10 +26,10 @@
     <AssemblyName>VSIXExVSIX</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>
-    <IncludeAssemblyInVSIXContainer>false</IncludeAssemblyInVSIXContainer>
+    <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
     <IncludeDebugSymbolsInVSIXContainer>false</IncludeDebugSymbolsInVSIXContainer>
     <IncludeDebugSymbolsInLocalVSIXDeployment>false</IncludeDebugSymbolsInLocalVSIXDeployment>
-    <CopyBuildOutputToOutputDirectory>false</CopyBuildOutputToOutputDirectory>
+    <CopyBuildOutputToOutputDirectory>true</CopyBuildOutputToOutputDirectory>
     <CopyOutputSymbolsToOutputDirectory>false</CopyOutputSymbolsToOutputDirectory>
     <StartAction>Program</StartAction>
     <StartProgram Condition="'$(DevEnvDir)' != ''">$(DevEnvDir)devenv.exe</StartProgram>
@@ -53,6 +53,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="MainIDs.cs" />
+    <Compile Include="MainPackage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +72,25 @@
       <Project>{6bc9fd6a-940b-4106-85fb-7ccda4c9d6b5}</Project>
       <Name>VSIXEx</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MainPackage.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MainPackage.vsct</LastGenOutput>
+    </Content>
+    <Content Include="MainPackage.vsct">
+      <DependentUpon>MainPackage.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Content>
+    <Content Include="Resources\DefaultCommandImages.png" />
+    <Content Include="Resources\MainPackage.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="VSPackage.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(SolutionDir)VSSDK.props" Condition="Exists('$(SolutionDir)VSSDK.props')" />
   <Import Project="$(SolutionDir)VSSDK.Analyzers.props" Condition="Exists('$(SolutionDir)VSSDK.Analyzers.props')" />

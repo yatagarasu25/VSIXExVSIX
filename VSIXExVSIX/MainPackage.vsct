@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <Extern href="stdidcmd.h"/>
+  <Extern href="vsshlids.h"/>
+
+  <Commands package="guidMainPackage">
+    <Groups>
+    </Groups>
+
+    <Menus>
+    </Menus>
+
+    <Buttons>
+    </Buttons>
+
+    <Bitmaps>
+    </Bitmaps>
+  </Commands>
+
+  <KeyBindings>
+  </KeyBindings>
+
+  <Symbols>
+    <GuidSymbol name="guidMainPackage" value="{87ac2de8-7288-4c92-8d2e-8827ce7e71c9}" />
+    <GuidSymbol name="guidMainPackageCmdSet" value="{3767ee58-dd86-41eb-93f7-8896274b8c7d}" />
+    <GuidSymbol name="guidImages" value="{d1840211-2031-4c96-b606-670e494a093f}" />
+  </Symbols>
+</CommandTable>
