@@ -24,7 +24,7 @@
   <Extern href="stdidcmd.h"/>
   <Extern href="vsshlids.h"/>
 
-  <Commands package="guidMainPackage">
+  <Commands package="<#= model.PackageGuidName #>">
 <#= model.GenerateCommandGroups() #>
 
 <#= model.GenerateCommandMenus() #>

@@ -7,6 +7,7 @@ namespace VSIXExVSIX
 	public static class GuidSymbols
 	{
 		[GuidSymbol]
+		[PackageGuidSymbol]
 		public const string guidMainPackage = "87ac2de8-7288-4c92-8d2e-8827ce7e71c9";
 		[GuidSymbol]
 		public const string guidMainPackageCmdSet = "3767ee58-dd86-41eb-93f7-8896274b8c7d";
